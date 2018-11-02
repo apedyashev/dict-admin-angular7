@@ -1,0 +1,16 @@
+$sidebar-item-height: 60px;
+a.sidebar-item {
+  width: 100%;
+  height: $sidebar-item-height;
+  // line-height: $sidebar-item-height;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  &:hover {
+    background-color: #ccc;
+  }
+
+  &.active {
+    background-color: #fafafa;
+  }
+}

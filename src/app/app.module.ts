@@ -10,9 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { JwtInterceptor /*, ErrorInterceptor*/ } from './helpers';
 import '@angular/material/prebuilt-themes/indigo-pink.css';
+import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, UsersComponent],
+  declarations: [AppComponent, LoginComponent, UsersComponent, SidebarItemComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
