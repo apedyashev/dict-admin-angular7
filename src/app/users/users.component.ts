@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services';
+import { first } from 'rxjs/operators';
+import { User } from '../models';
 
 @Component({
   selector: 'app-users',
@@ -6,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  constructor() {}
+  users: User[] = [];
+  displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
+  constructor(private usersService: UsersService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.usersService
+      .getAll()
+      .pipe(first())
+      .subscribe(({ items }) => {
+        this.users = items;
+      });
+  }
 }
