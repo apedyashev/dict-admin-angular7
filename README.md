@@ -28,3 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Links
 http://jasonwatmore.com/post/2018/10/29/angular-7-user-registration-and-login-example-tutorial#app-module-ts
+prettier: https://medium.com/@victormejia/setting-up-prettier-in-an-angular-cli-project-2f50c3b9a537
