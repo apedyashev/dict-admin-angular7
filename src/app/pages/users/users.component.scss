@@ -1,7 +1,8 @@
 $hovered-row-color: #eee;
 table {
   width: 100%;
-  tr:hover {
+  tr:hover,
+  tr.selected {
     cursor: pointer;
     background-color: $hovered-row-color;
   }

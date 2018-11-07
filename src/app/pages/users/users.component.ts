@@ -11,6 +11,7 @@ import { User } from '../../models';
 export class UsersComponent implements OnInit {
   showUserDetails = false;
   users: User[] = [];
+  selectedUser: User = null;
   displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
   constructor(private usersService: UsersService) {}
 
@@ -25,5 +26,12 @@ export class UsersComponent implements OnInit {
 
   onClick(row) {
     this.showUserDetails = true;
+    this.selectedUser = row;
+  }
+  visibleChange(isDrawerVisible) {
+    this.showUserDetails = isDrawerVisible;
+    if (!isDrawerVisible) {
+      this.selectedUser = null;
+    }
   }
 }

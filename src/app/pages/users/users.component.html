@@ -1,8 +1,4 @@
 <table mat-table [dataSource]="users" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
   <!-- Name Column -->
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -27,7 +23,15 @@
 
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClick(row)"></tr>
+  <tr mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+    [ngClass]="{'selected': selectedUser && (selectedUser.id == row.id)}"
+    (click)="onClick(row)"
+  ></tr>
 </table>
 
-<app-user-details-drawer [visible]="showUserDetails"></app-user-details-drawer>
+<app-user-details-drawer
+  [visible]="showUserDetails"
+  (visibleChange)="visibleChange($event)"
+  [user]="selectedUser"
+></app-user-details-drawer>

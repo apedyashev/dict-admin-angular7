@@ -1,3 +1,4 @@
-<app-sidebar-drawer [visible]="visible">
+<app-sidebar-drawer [visible]="visible" (visibleChange)="onVisibleChange($event)">
   <div>Modal</div>
+  <div>{{user && user.email}}</div>
 </app-sidebar-drawer>
