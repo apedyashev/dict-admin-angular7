@@ -1,3 +1,8 @@
+$hovered-row-color: #eee;
 table {
   width: 100%;
+  tr:hover {
+    cursor: pointer;
+    background-color: $hovered-row-color;
+  }
 }

@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -11,16 +12,18 @@ import { UsersComponent } from './pages/users/users.component';
 import { JwtInterceptor /*, ErrorInterceptor*/ } from './helpers';
 import '@angular/material/prebuilt-themes/indigo-pink.css';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
+import { SidebarDrawerComponent } from './components/sidebar-drawer/sidebar-drawer.component';
 
 @NgModule({
   // The components, directives, and pipes that belong to this NgModule.
-  declarations: [AppComponent, LoginComponent, UsersComponent, SidebarItemComponent],
+  declarations: [AppComponent, LoginComponent, UsersComponent, SidebarItemComponent, SidebarDrawerComponent],
   // The subset of declarations that should be visible and usable in the component templates of
   // other NgModules.
   // exports: [],
   // Other modules whose exported classes are needed by component templates declared in this NgModule
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AppMaterialModule,
