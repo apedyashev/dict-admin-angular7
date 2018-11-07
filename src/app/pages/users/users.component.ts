@@ -9,6 +9,7 @@ import { User } from '../../models';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+  showUserDetails = true;
   users: User[] = [];
   displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
   constructor(private usersService: UsersService) {}

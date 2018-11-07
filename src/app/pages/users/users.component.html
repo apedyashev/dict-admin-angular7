@@ -30,6 +30,6 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<app-sidebar-drawer visible="true">
+<app-sidebar-drawer [visible]="showUserDetails">
   <div>Modal</div>
 </app-sidebar-drawer>
