@@ -22,13 +22,20 @@
   </ng-container>
 
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
   <tr mat-row
     *matRowDef="let row; columns: displayedColumns;"
     [ngClass]="{'selected': selectedUser && (selectedUser.id == row.id)}"
     (click)="onClick(row)"
   ></tr>
 </table>
+<mat-paginator
+  showFirstLastButtons
+  [length]="totalUsersLength"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[2, 10, 20]"
+  (page)="pageEvent($event)"
+></mat-paginator>
 
 <app-user-details-drawer
   [visible]="showUserDetails"

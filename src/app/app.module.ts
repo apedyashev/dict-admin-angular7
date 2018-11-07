@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './material.module';
 import { AppComponent } from './app.component';
@@ -23,7 +22,6 @@ import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.com
   // Other modules whose exported classes are needed by component templates declared in this NgModule
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AppMaterialModule,

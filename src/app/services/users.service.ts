@@ -3,8 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models';
 import { environment as config } from '../../environments/environment';
 
+class Pagination {
+  page: number;
+  pages: number;
+  perPage: number;
+  total: number;
+}
 class ListReponse {
   items: User[] = [];
+  pagination: Pagination;
 }
 
 @Injectable({
@@ -13,7 +20,7 @@ class ListReponse {
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  getAll() {
-    return this.http.get<ListReponse>(`${config.apiUrl}/users`);
+  getAll(params) {
+    return this.http.get<ListReponse>(`${config.apiUrl}/users`, { params });
   }
 }

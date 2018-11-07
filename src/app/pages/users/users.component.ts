@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../../services';
 import { first } from 'rxjs/operators';
 import { User } from '../../models';
@@ -13,25 +13,39 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   selectedUser: User = null;
   displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
+  pageSize = 20;
+  totalUsersLength = 0;
+
   constructor(private usersService: UsersService) {}
 
-  ngOnInit() {
+  fetchUsers(query) {
     this.usersService
-      .getAll()
+      .getAll(query)
       .pipe(first())
-      .subscribe(({ items }) => {
+      .subscribe(({ items, pagination }) => {
         this.users = items;
+        this.totalUsersLength = pagination.total;
       });
   }
+  ngOnInit() {
+    const query = { perPage: this.pageSize };
+    this.fetchUsers(query);
+  }
 
-  onClick(row) {
+  onClick(row: User) {
     this.showUserDetails = true;
     this.selectedUser = row;
   }
-  visibleChange(isDrawerVisible) {
+
+  visibleChange(isDrawerVisible: boolean) {
     this.showUserDetails = isDrawerVisible;
     if (!isDrawerVisible) {
       this.selectedUser = null;
     }
+  }
+
+  pageEvent(pageEvent) {
+    const query = { page: pageEvent.pageIndex + 1, perPage: pageEvent.pageSize };
+    this.fetchUsers(query);
   }
 }
