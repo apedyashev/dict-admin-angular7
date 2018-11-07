@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
   pageSize = 20;
   totalUsersLength = 0;
+  query = {};
 
   constructor(private usersService: UsersService) {}
 
@@ -45,7 +46,17 @@ export class UsersComponent implements OnInit {
   }
 
   pageEvent(pageEvent) {
-    const query = { page: pageEvent.pageIndex + 1, perPage: pageEvent.pageSize };
-    this.fetchUsers(query);
+    this.query = { page: pageEvent.pageIndex + 1, perPage: pageEvent.pageSize };
+    this.fetchUsers(this.query);
+  }
+
+  onMatSortChange(sortEvent) {
+    if (sortEvent.direction) {
+      this.query.sortBy = `${sortEvent.active}:${sortEvent.direction}`;
+    } else {
+      delete this.query.sortBy;
+    }
+
+    this.fetchUsers(this.query);
   }
 }
