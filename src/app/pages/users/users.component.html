@@ -27,9 +27,7 @@
 
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClick(row)"></tr>
 </table>
 
-<app-sidebar-drawer [visible]="showUserDetails">
-  <div>Modal</div>
-</app-sidebar-drawer>
+<app-user-details-drawer [visible]="showUserDetails"></app-user-details-drawer>

@@ -8,15 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { UsersComponent } from './pages/users/users.component';
+// import { UsersComponent } from './pages/users/users.component';
+import { UsersModule } from './pages/users/users.module';
 import { JwtInterceptor /*, ErrorInterceptor*/ } from './helpers';
 import '@angular/material/prebuilt-themes/indigo-pink.css';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
-import { SidebarDrawerComponent } from './components/sidebar-drawer/sidebar-drawer.component';
 
 @NgModule({
   // The components, directives, and pipes that belong to this NgModule.
-  declarations: [AppComponent, LoginComponent, UsersComponent, SidebarItemComponent, SidebarDrawerComponent],
+  declarations: [AppComponent, LoginComponent, /*UsersComponent,*/ SidebarItemComponent],
   // The subset of declarations that should be visible and usable in the component templates of
   // other NgModules.
   // exports: [],
@@ -28,7 +28,8 @@ import { SidebarDrawerComponent } from './components/sidebar-drawer/sidebar-draw
     AppRoutingModule,
     AppMaterialModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UsersModule
   ],
   // Creators of services that this NgModule contributes to the global collection of services;
   // they become accessible in all parts of the app. (You can also specify providers at the component

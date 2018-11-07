@@ -9,7 +9,7 @@ import { User } from '../../models';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  showUserDetails = true;
+  showUserDetails = false;
   users: User[] = [];
   displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
   constructor(private usersService: UsersService) {}
@@ -21,5 +21,9 @@ export class UsersComponent implements OnInit {
       .subscribe(({ items }) => {
         this.users = items;
       });
+  }
+
+  onClick(row) {
+    this.showUserDetails = true;
   }
 }
