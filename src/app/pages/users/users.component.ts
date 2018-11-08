@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'email', 'locale', 'timezone'];
   pageSize = 20;
   totalUsersLength = 0;
-  query = {};
+  query: any = {};
 
   constructor(private usersService: UsersService) {}
 

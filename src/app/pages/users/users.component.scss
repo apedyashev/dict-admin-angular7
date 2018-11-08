@@ -1,8 +1,9 @@
 $hovered-row-color: #eee;
 table {
   width: 100%;
-  tr:hover,
-  tr.selected {
+
+  tr.mat-row:hover,
+  tr.mat-row.selected {
     cursor: pointer;
     background-color: $hovered-row-color;
   }

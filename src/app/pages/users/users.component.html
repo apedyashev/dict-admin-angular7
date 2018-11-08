@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="users" matSort (matSortChange)="onMatSortChange($event)">
+<table mat-table class="users-list" [dataSource]="users" matSort (matSortChange)="onMatSortChange($event)">
   <!-- Name Column -->
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>

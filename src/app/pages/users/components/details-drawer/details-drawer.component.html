@@ -1,4 +1,15 @@
 <app-sidebar-drawer [visible]="visible" (visibleChange)="onVisibleChange($event)">
   <div>Modal</div>
-  <div>{{user && user.email}}</div>
+  <div *ngIf="user">
+    <h4>{{user.firstName}} {{user.lastName}}'s profile</h4>
+    <div>{{user.id}}</div>
+    <div>{{user.email}}</div>
+    <div>{{user.roles}}</div>
+    <div>{{user.timezone}}</div>
+    <div>{{user.exerciseTime}}</div>
+    <div>{{user.country}}</div>
+    <div>{{user.createdAt | date:'medium'}}</div>
+    <div>{{user.updatedAt | date:'medium'}}</div>
+  </div>
+
 </app-sidebar-drawer>
