@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 // import { UsersComponent } from './pages/users/users.component';
 import { UsersModule } from './pages/users/users.module';
+import { StatsModule } from './pages/stats/stats.module';
 import { JwtInterceptor /*, ErrorInterceptor*/ } from './helpers';
 import '@angular/material/prebuilt-themes/indigo-pink.css';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
@@ -27,7 +28,9 @@ import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.com
     AppMaterialModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UsersModule
+    // page modules
+    UsersModule,
+    StatsModule
   ],
   // Creators of services that this NgModule contributes to the global collection of services;
   // they become accessible in all parts of the app. (You can also specify providers at the component
